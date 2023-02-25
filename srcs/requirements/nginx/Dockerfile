@@ -9,7 +9,8 @@ RUN mkdir -p /var/www/html
 
 COPY ./conf/default.conf /etc/nginx/http.d/default.conf
 COPY ./tools/index.html /var/www/html/index.html
+COPY ./tools/phpinfo.php /var/www/html/phpinfo.php
 
 EXPOSE 443
 
-CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
