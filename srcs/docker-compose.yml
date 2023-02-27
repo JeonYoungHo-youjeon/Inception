@@ -7,3 +7,30 @@ services:
     ports:
       - 443:443
     restart: always
+    volumes:
+      - wp_volume:/var/www/html/wordpress
+    depends_on:
+      - wordpress
+    networks:
+      - inception_network
+
+  wordpress:
+    build: requirements/wordpress
+    container_name: wordpress
+    restart: always
+    volumes:
+      - wp_volume:/var/www/html/wordpress
+    networks:
+      - inception_network
+
+volumes:
+  wp_volume:
+     driver: local
+     driver_opts:
+       type: volume
+       device: /Users/youjeon/Desktop/git/Inception/srcs/volume
+       o: bind
+
+networks:
+  inception_network:
+    driver: bridge
