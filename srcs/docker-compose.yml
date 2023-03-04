@@ -2,27 +2,28 @@ version: "3.8"
 
 services:
   nginx:
-    build: requirements/nginx
+    build: ./requirements/nginx
     container_name: nginx
     ports:
       - 443:443
     restart: always
     volumes:
-      - wp_volume:/var/www/html/wordpress
+      - wp_volume:/var/www/html
     depends_on:
       - wordpress
     networks:
       - inception_network
 
   wordpress:
-    build: requirements/wordpress
+    build: ./requirements/wordpress
     container_name: wordpress
     restart: always
     volumes:
-      - wp_volume:/var/www/html/wordpress
+      - wp_volume:/var/www/html
     networks:
       - inception_network
-
+    expose:
+      - "9000"
 volumes:
   wp_volume:
      driver: local
