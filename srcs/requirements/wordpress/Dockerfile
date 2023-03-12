@@ -1,7 +1,7 @@
 FROM alpine:3.16.4
 
-RUN apk update
-RUN apk add php-fpm
+RUN apk update && apk upgrade
+RUN apk add php-fpm php8-mysqli
 
 RUN wget https://wordpress.org/latest.tar.gz
 RUN tar -xzvf latest.tar.gz

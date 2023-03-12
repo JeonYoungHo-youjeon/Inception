@@ -1,6 +1,6 @@
 FROM alpine:3.16.4
 
-RUN apk update
+RUN apk update && apk upgrade
 RUN apk add nginx openssl
 
 RUN openssl req -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=KR/ST=Seoul/L=Seoul/O=42Seoul/OU=Gon/CN=localhost" -out /etc/ssl/certs/youjeon.42.fr.crt -keyout /etc/ssl/private/youjeon.42.fr.key
