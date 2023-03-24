@@ -26,6 +26,8 @@ services:
       - mariadb
     networks:
       - inception_network
+    env_file:
+      - .env
 
   mariadb :
     build : ./requirements/mariadb
