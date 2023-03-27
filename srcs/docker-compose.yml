@@ -47,7 +47,7 @@ volumes:
      driver: local
      driver_opts:
        type: volume
-       device: /Users/youjeon/Desktop/git/Inception/srcs/volume/wordpress
+       device: /home/youjeon/data/wordpress
        o: bind
   db:
     name: db
@@ -55,7 +55,7 @@ volumes:
     driver_opts:
       type: volume
       o: bind
-      device: /Users/youjeon/Desktop/git/Inception/srcs/volume/db
+      device: /home/youjeon/data/db
 
 networks:
   inception_network:
